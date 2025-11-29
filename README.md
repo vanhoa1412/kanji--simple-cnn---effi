@@ -21,7 +21,7 @@
 ## 📂 Cấu trúc thư mục
 
 ```text
-DaKanji-Project/
+Kanji-Project/
 │
 ├── test.py                     # File chạy chương trình chính (App vẽ)
 ├── best_efficientnet_kanji.h5  # File Model EfficientNet (Download từ Kaggle)
@@ -30,3 +30,30 @@ DaKanji-Project/
 ├── kanji_labels_map_1.pkl      # (Tùy chọn) File từ điển cho Simple CNN nếu train riêng
 ├── requirements.txt            # Danh sách thư viện cần thiết
 └── README.md                   # Tài liệu hướng dẫn
+
+## Cài đặt các thư viện cần thiết:
+Mở terminal (CMD/PowerShell) và chạy lệnh:
+
+```text
+ pip install tensorflow numpy pillow opencv-python scikit-learn
+
+## 🚀 Hướng dẫn sử dụng
+**1. Chạy ứng dụng**
+Chạy file test.py bằng Python:
+```text
+python test.py
+
+**2. Cách dùng trên giao diện**
+Vẽ chữ: Dùng chuột vẽ chữ Kanji vào khung màu đen.
+Lưu ý: Nên vẽ nét dứt khoát, to và rõ ràng.
+Nhận diện: Thả chuột ra, kết quả sẽ hiện ngay bên dưới kèm theo độ tin cậy (%).
+Xóa bảng: Nhấn nút Xóa bảng (hoặc Clear) để vẽ chữ mới.
+Nếu máy đoán sai:
+Thử tích vào ô [x] Đảo màu (nếu model được train với nền trắng chữ đen).
+Kiểm tra xem bạn đã vẽ đúng nét chưa.
+**3. Chuyển đổi Model**
+Mở file test.py bằng trình soạn thảo code, tìm dòng CẤU HÌNH ở đầu file và bỏ comment model bạn muốn dùng:
+```text
+# Chọn 1 trong 2 dòng dưới đây:
+MODEL_PATH = "best_efficientnet_kanji.h5"  # Dùng EfficientNet (Khuyên dùng)
+# MODEL_PATH = "best_simple_cnn.h5"        # Dùng Simple CNN
